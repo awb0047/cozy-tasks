@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import sprite from '../assets/sprite_animated.gif'
-import note from '../assets/sticky note.png'
 import { Bubble, Task } from '../components'
+import { getTasks } from "../utils/api";
 
 export const HomeContainer = styled.div`
     width: 100%;
@@ -37,8 +37,17 @@ export const Note = styled.img`
 `
 
 export function Home( {
-    props
+    client
 } ) {
+
+    getTasks(client)
+        .then((response) => {
+            console.log("test");
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
     return (
         <HomeContainer>
             <Upper>

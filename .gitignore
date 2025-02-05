@@ -13,6 +13,9 @@ dist-ssr
 dist-react
 *.local
 
+# Google Auth
+token.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

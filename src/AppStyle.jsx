@@ -5,6 +5,6 @@ export const AppContainer = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(238, 238, 79);
+    background-color: rgb(58, 89, 52);
     border-radius: 20px;
 `

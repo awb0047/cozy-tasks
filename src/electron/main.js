@@ -7,6 +7,7 @@ app.on("ready", () => {
         height: 500,
         frame: false,
         transparent: true,
+        title: "Cozy Tasks",
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false

@@ -40,6 +40,10 @@ export function Header( {
     text
 } ) {
 
+    const settings = () => {
+        console.log("Open Settings");
+    }
+
     const minimize = () => {
         ipcRenderer.send('minimize')
     }
@@ -52,6 +56,7 @@ export function Header( {
         <HeaderContainer>
             <Text>{text}</Text>
             <ButtonContainer>
+                <Button onClick={() => settings()}>O</Button>
                 <Button onClick={() => minimize()}>_</Button>
                 <Button onClick={() => close()}>X</Button>
             </ButtonContainer>
