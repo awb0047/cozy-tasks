@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-//const { ipcRenderer } = require("electron");
+const { ipcRenderer } = require("electron");
 
 export const HeaderContainer = styled.div`
     width: 100%;
@@ -13,14 +13,14 @@ export const HeaderContainer = styled.div`
 export const Text = styled.h1`
     font-size: 30px;
     font-weight: bold;
-    padding-left: 12px;
+    padding-left: 4%;
 `
 
 export const ButtonContainer = styled.div`
     width: auto;
     height: 70%;
     margin-left: auto;
-    margin-right: 12px;
+    margin-right: 4%;
     display: flex;
     gap: 5px;
     justify-content: right;

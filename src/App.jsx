@@ -1,15 +1,22 @@
 import { useState } from 'react'
 import { AppContainer } from './AppStyle'
 
-import { Header, Body } from '../src/components'
+import { Header, Body, Home } from '../src/components'
+import { getTasks } from '../src/utils/api'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeTab, setActiveTab] = useState(0);
+
+  console.log(getTasks())
 
   return (
     <AppContainer>
-      <Header text={"Cozy Tasks <3"}/>
-      <Body/>
+      <Header text={"Cozy Tasks"}/>
+      <Body>
+        {activeTab === 0 && (
+          <Home/>
+        )}
+      </Body>
     </AppContainer>
   )
 }
