@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import sprite from '../assets/sprite_animated.gif'
+import sprite from '../assets/sprite.gif'
+import smile from '../assets/sprite_smile.gif'
 import login from '../assets/login.png'
 import { Bubble } from '../components'
 import { authorize } from '../utils/api'
@@ -25,13 +26,19 @@ export const Sprite = styled.img`
 `
 
 export const LoginImg = styled.img`
-    width: 200px;
+    width: 180px;
     height: auto;
+    transition: 0.15s;
+
+    &:hover {
+        width: 200px;
+    }
 `
 
 export function Login( {
     setClient
 } ) {
+    const [character, setCharacter] = React.useState(sprite);
 
     const googleLogin = () => {
         authorize()
@@ -43,14 +50,22 @@ export function Login( {
             })
     }
 
+    const MouseOver = () => {
+        setCharacter(smile);
+    }
+
+    const MouseOut = () => {
+        setCharacter(sprite);
+    }
+
     return (
         <LoginContainer>
             <Upper>
-                <Sprite src={sprite} alt="person" />
+                <Sprite src={character} alt="person" />
                 <Bubble text={"Hey there! Click the button to login"}/>
             </Upper>
             <Upper>
-                <LoginImg onClick={() => googleLogin()} src={login} alt="login" />
+                <LoginImg onClick={() => googleLogin()} src={login} alt="login" onMouseOver={MouseOver} onMouseOut={MouseOut}/>
             </Upper>
         </LoginContainer>
     );

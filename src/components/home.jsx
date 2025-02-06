@@ -11,36 +11,27 @@ export const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
 `
+
+export const Text = styled.h1`
+    font-size: 120%;
+    font-weight: bold;
+`
+
 export const Upper = styled.div`
     width: 100%;
-    height: 50%;
-    max-height: 50%;
+    height: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
 `
 
 export const Lower = styled.div`
     width: 100%;
-    height: 50%;
-    max-height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`
-
-export const TasksContainer = styled.div`
-    width: calc(100% - 20px);
     height: 100%;
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    overflow-y:auto;
-    background: rgba(255,255,255,0.3);
 `
 
 export const Sprite = styled.img`
@@ -72,19 +63,32 @@ export function Home( {
     return (!loading) ? (
         <HomeContainer>
             <Upper>
-                <Sprite src={sprite} alt="person" />
-                <Bubble text={"Welcome! Your tasks for today:"}/>
+                <Text>Todays Tasks!</Text>
             </Upper>
             <Lower>
-                <TasksContainer>
-                    {
-                        tasks.map((task, i) => {
-                            return <Task description={task.title}/>
-                        })
-                    }
-                </TasksContainer>
+                {
+                    tasks.map((task, i) => {
+                        return <Task description={task.title}/>
+                    })
+                }
             </Lower>
         </HomeContainer>
+
+        // <HomeContainer>
+        //     <Upper>
+        //         <Sprite src={sprite} alt="person" />
+        //         <Bubble text={"Welcome! Your tasks for today:"}/>
+        //     </Upper>
+        //     <Lower>
+        //         <TasksContainer>
+        //             {
+        //                 tasks.map((task, i) => {
+        //                     return <Task description={task.title}/>
+        //                 })
+        //             }
+        //         </TasksContainer>
+        //     </Lower>
+        // </HomeContainer>
     ) : (
         <Loading/>
     );

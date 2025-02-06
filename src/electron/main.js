@@ -8,6 +8,7 @@ app.on("ready", () => {
         frame: false,
         transparent: true,
         title: "Cozy Tasks",
+        icon: path.join(app.getAppPath(), "/src/assets/Logo_t.ico"),
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false

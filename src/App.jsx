@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { AppContainer } from './AppStyle'
 
-import { Header, Body, Home, Login, Loading } from '../src/components'
-import { authorize, checkAuthorization, getTasks } from '../src/utils/api'
+import { Header, Body, Home, Login, Loading, Settings } from '../src/components'
+import { checkAuthorization } from '../src/utils/api'
 
 function App() {
   const [client, setClient] = useState(null);
@@ -39,7 +39,7 @@ function App() {
   // Draw App
   return (!loading) ? (
     <AppContainer>
-      <Header text={"Cozy Tasks"}/>
+      <Header text={"Cozy Tasks"} activeTab={activeTab} setActiveTab={setActiveTab}/>
       <Body>
         {activeTab === 0 && (
           <Login setClient={setClient}/>
@@ -47,6 +47,10 @@ function App() {
 
         {activeTab === 1 && (
           <Home client={client}/>
+        )}
+
+        {activeTab === 2 && (
+          <Settings/>
         )}
       </Body>
     </AppContainer>

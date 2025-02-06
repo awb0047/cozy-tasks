@@ -37,11 +37,15 @@ export const Button = styled.button`
 `
 
 export function Header( {
-    text
+    text, activeTab, setActiveTab
 } ) {
 
     const settings = () => {
-        console.log("Open Settings");
+        if (activeTab != 2) {
+            setActiveTab(2)
+        } else {
+            setActiveTab(1)
+        }
     }
 
     const minimize = () => {

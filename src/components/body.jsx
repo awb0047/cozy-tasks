@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import backgroundImg from '../assets/clouds.jpg'
+import backgroundImg from '../assets/Sunny_clouds.png'
 import { Home } from '../components'
 
 export const BodyContainer = styled.div`
