@@ -16,11 +16,11 @@ export const TaskContainer = styled.div`
 export const Note = styled.img`
     width: 40px;
     height: auto;
-    padding: 0px 20px;
+    padding: 5px 20px;
 `
 
 export const Description = styled.h2`
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     padding-left: 4%;
 `
