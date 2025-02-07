@@ -20,8 +20,28 @@ export const Text = styled.h1`
 export const Upper = styled.div`
     width: 100%;
     height: 30px;
+    position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+`
+
+export const LeftButton = styled.img`
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    left: 0;
+    margin-left: 10px;
+`
+
+export const RightButton = styled.img`
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: Green;
+    right: 0;
+    margin-right: 10px;
 `
 
 export const Lower = styled.div`
@@ -49,6 +69,7 @@ export function Home( {
 } ) {
     const [loading, setLoading] = React.useState(true);
     const [tasks, setTasks] = React.useState([]);
+    const [page, setPage] = React.useState(0);
 
     getTasks(client)
         .then((response) => {
@@ -63,12 +84,18 @@ export function Home( {
     return (!loading) ? (
         <HomeContainer>
             <Upper>
+                <LeftButton/>
                 <Text>Todays Tasks!</Text>
+                <RightButton/>
             </Upper>
             <Lower>
                 {
                     tasks.map((task, i) => {
-                        return <Task description={task.title}/>
+                        if (i >= page*4 && i <= (page*4) + 3) {
+                            return <Task description={task.title}/>
+                            //return <Task description={'page: ' + page + ' i: ' + i}/>
+                        }
+                        //return <Task description={'page: ' + page + ' i: ' + i}/>
                     })
                 }
             </Lower>
